@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace AVS.DevStore.Api.Extensions
+namespace AVS.DevStore.API.Extensions
 {
     public class IdentityMensagensPortugues : IdentityErrorDescriber
     {

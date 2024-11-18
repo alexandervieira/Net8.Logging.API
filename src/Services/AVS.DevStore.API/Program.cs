@@ -1,7 +1,5 @@
-
+using Asp.Versioning.ApiExplorer;
 using AVS.DevStore.API.Configurations;
-using AVS.DevStore.Infra.Data.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace AVS.DevStore.API
 {
@@ -10,41 +8,45 @@ namespace AVS.DevStore.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+                        
+            if (builder.Environment.IsDevelopment())
+            {
+                builder.Configuration.AddUserSecrets<Program>();
+            }
 
+            // Configure Service
             builder.Configuration
                 .SetBasePath(builder.Environment.ContentRootPath)
                 .AddJsonFile("appsettings.json", true, true)
                 .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
                 .AddEnvironmentVariables();
 
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
+            builder.Services.AddPersistenceConfig(builder.Configuration);
 
-            builder.Services.AddApiConfiguration();
+            builder.Services.AddIdentityConfig(builder.Configuration);
 
-            //builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            //builder.Services.AddEndpointsApiExplorer();
-           
+            builder.Services.AddApiConfiguration(); 
+
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddSwaggerConfig();
+
+            builder.Services.AddLoggingConfig(builder);
+
+            builder.Services.ResolveDependencies();
+
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
-            app.UseHttpsRedirection();
+            // Configure
+            app.UseApiConfig(app.Environment);
 
-            app.UseAuthorization();
+            app.UseSwaggerConfig(apiVersionDescriptionProvider);
 
-
-            app.MapControllers();
+            app.UseLoggingConfiguration();
 
             app.Run();
         }

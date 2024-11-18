@@ -1,4 +1,4 @@
-﻿using AVS.DevStore.Api.Extensions;
+﻿using AVS.DevStore.API.Extensions;
 using AVS.DevStore.Business.Intefaces;
 using AVS.DevStore.Business.Notificacoes;
 using AVS.DevStore.Business.Services;
@@ -7,7 +7,7 @@ using AVS.DevStore.Infra.Data.Repository;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace AVS.DevStore.Api.Configuration
+namespace AVS.DevStore.API.Configurations
 {
     public static class DependencyInjectionConfig
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace AVS.DevStore.Api.Extensions
+namespace AVS.DevStore.API.Extensions
 {
     public class SqlServerHealthCheck : IHealthCheck
     {
@@ -21,7 +21,7 @@ namespace AVS.DevStore.Api.Extensions
                     await connection.OpenAsync(cancellationToken);
 
                     var command = connection.CreateCommand();
-                    command.CommandText = "select count(id) from produtos";
+                    command.CommandText = "SELECT COUNT(Id) FROM Produtos";
 
                     return Convert.ToInt32(await command.ExecuteScalarAsync(cancellationToken)) > 0 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();
                 }

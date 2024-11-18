@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AVS.DevStore.Api.Data
+namespace AVS.DevStore.API.Data
 {
     public class IdentityContext : IdentityDbContext
     {

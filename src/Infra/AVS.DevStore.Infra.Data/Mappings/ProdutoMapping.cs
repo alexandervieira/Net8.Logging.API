@@ -22,6 +22,10 @@ namespace AVS.DevStore.Infra.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            builder.Property(p => p.Valor)
+                .IsRequired()
+                .HasColumnType("decimal(12,2)");
+
             builder.ToTable("Produtos");
         }
     }

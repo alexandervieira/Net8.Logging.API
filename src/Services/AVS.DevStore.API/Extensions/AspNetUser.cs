@@ -1,7 +1,7 @@
 ﻿using AVS.DevStore.Business.Intefaces;
 using System.Security.Claims;
 
-namespace AVS.DevStore.Api.Extensions
+namespace AVS.DevStore.API.Extensions
 {
     public class AspNetUser : IUser
     {

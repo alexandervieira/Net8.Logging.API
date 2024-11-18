@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using AVS.DevStore.Api.ViewModels;
+using AVS.DevStore.API.ViewModels;
 using AVS.DevStore.Business.Models;
 
-namespace AVS.DevStore.Api.Configuration
+namespace AVS.DevStore.API.Configurations
 {
     public class AutomapperConfig : Profile
     {

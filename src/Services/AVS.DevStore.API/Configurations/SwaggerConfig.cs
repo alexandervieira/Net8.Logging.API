@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text.Json;
 
-namespace AVS.DevStore.Api.Configuration
+namespace AVS.DevStore.API.Configurations
 {
     public static class SwaggerConfig
     {
@@ -46,7 +46,7 @@ namespace AVS.DevStore.Api.Configuration
 
         public static IApplicationBuilder UseSwaggerConfig(this IApplicationBuilder app, IApiVersionDescriptionProvider provider)
         {
-            app.UseMiddleware<SwaggerAuthorizedMiddleware>();
+            //app.UseMiddleware<SwaggerAuthorizedMiddleware>();
             app.UseSwagger();
             app.UseSwaggerUI(
                 options =>

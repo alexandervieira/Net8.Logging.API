@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace AVS.DevStore.Api.Extensions
+namespace AVS.DevStore.API.Extensions
 {
     public class CustomAuthorization
     {

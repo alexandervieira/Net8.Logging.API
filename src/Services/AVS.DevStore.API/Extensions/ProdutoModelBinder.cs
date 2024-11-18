@@ -1,8 +1,8 @@
-﻿using AVS.DevStore.Api.ViewModels;
+﻿using AVS.DevStore.API.ViewModels;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Text.Json;
 
-namespace AVS.DevStore.Api.Extensions
+namespace AVS.DevStore.API.Extensions
 {
     // Binder personalizado para envio de IFormFile e ViewModel dentro de um FormData compatível com .NET Core 3.1 ou superior (system.text.json)
     public class ProdutoModelBinder : IModelBinder

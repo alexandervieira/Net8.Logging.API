@@ -1,12 +1,12 @@
 ﻿using System.Text;
-using AVS.DevStore.Api.Data;
-using AVS.DevStore.Api.Extensions;
+using AVS.DevStore.API.Data;
+using AVS.DevStore.API.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-namespace AVS.DevStore.Api.Configuration
+namespace AVS.DevStore.API.Configurations
 {
     public static class IdentityConfig
     {
